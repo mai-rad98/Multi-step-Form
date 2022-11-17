@@ -69,9 +69,21 @@ function OtherInfo({ formData, setFormData }) {
           setFormData({ ...formData, address: e.target.value });
         }} 
                 />
+                
+                 
               </Grid>
            
-              
+              <Grid item xs={12} sm={2}>
+                <TextField
+    id="date"
+    label="Birthday"
+    type="date"
+    defaultValue="2017-05-24"
+    autoComplete="family-name"
+  
+   
+  />
+                </Grid>
                
             </Grid>
     </FormControl>
