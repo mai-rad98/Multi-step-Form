@@ -15,7 +15,7 @@ import {Button, Box,Grid,Paper} from '@mui/material'
 
 function Form() {
 
-  const paperStyle={padding :20,height:'70vh',width:300, margin:"20px auto"} 
+  const paperStyle={padding :20,height:'70vh',width:1000, margin:"20px auto"} 
   
 
 
