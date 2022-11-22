@@ -2,21 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter  as Router} from "react-router-dom"
+import {createRoot } from 'react-dom/client'
 
+import StepContext from './StepContext';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
-
-<BrowserRouter>
+<StepContext>
+<Router>
 <App />
-</BrowserRouter>
+</Router>
+</StepContext> );
 
 
-);
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

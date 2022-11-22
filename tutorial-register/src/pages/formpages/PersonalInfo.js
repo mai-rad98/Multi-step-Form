@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import { Grid } from '@mui/material';
+import { Grid ,Button} from '@mui/material';
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography';
+import {multiStepContext} from  '../../StepContext'
 
 
-function PersonalInfo({ formData, setFormData }) {
+function PersonalInfo() {
+
+  const {setStep,userData,setUserData}= useContext(multiStepContext);
   return (
     <Box>
     <FormControl>
@@ -21,10 +24,10 @@ function PersonalInfo({ formData, setFormData }) {
                   id="firstName"
                   label="First Name"
                   autoFocus
-                  value={formData.firstName}
+               value={userData['firstName']}
         onChange={(e) => {
-          setFormData({ ...formData, firstName: e.target.value });
-        }} 
+         setUserData({ ...userData, 'firstName': e.target.value });
+        }}
                 />
                 </Grid>
                 <Typography></ Typography>
@@ -34,42 +37,45 @@ function PersonalInfo({ formData, setFormData }) {
                   fullWidth
                   id="lastName"
                   label="Last Name"
-                  name="lastName"
+                  name="lastname"
                   autoComplete="family-name"
-                  value={formData.lastName}
-        onChange={(e) => {
-          setFormData({ ...formData, lastName: e.target.value });
-        }} 
+                  value={userData['lastName']}
+                  onChange={(e) => {
+                   setUserData({ ...userData, 'lastName': e.target.value });
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={12}>
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
+                  id="email"
                   label="Email"
                   name="email"
                   autoComplete="family-name"
-                  value={formData.email}
-        onChange={(e) => {
-          setFormData({ ...formData, email: e.target.value });
-        }} 
-                />
+                  value={userData['email']}
+                  onChange={(e) => {
+                   setUserData({ ...userData, 'email': e.target.value });
+                  }}
+        />
               </Grid>
               <Grid item xs={12} sm={12}>
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
+                  id="email1"
                   label="Back up Email"
-                  name="email"
+                  name="email1"
                   autoComplete="family-name"
-                  value={formData.backupEmail}
-        onChange={(e) => {
-          setFormData({ ...formData, backupEmail: e.target.value });
-        }} 
+                  value={userData['email1']}
+                  onChange={(e) => {
+                   setUserData({ ...userData, 'email1': e.target.value });
+                  }}
 
                 />
+                <Grid  item xs={12} sm={12}>
+                <Button variant="contained" onClick={()=>setStep(2)} color='primary'>Next</Button>
+                </Grid>
               </Grid>
            
               

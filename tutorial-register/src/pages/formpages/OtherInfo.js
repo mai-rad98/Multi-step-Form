@@ -1,12 +1,18 @@
-import React from 'react'
+import React , {useContext}from 'react'
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import { Grid } from '@mui/material';
+import { Grid ,Button} from '@mui/material';
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography';
+import {multiStepContext} from  '../../StepContext'
+
+ 
+function OtherInfo() {
 
 
-function OtherInfo({ formData, setFormData }) {
+  const {setStep,userData,setUserData}= useContext(multiStepContext);
+
+
   return (
     <Box>
     <FormControl>
@@ -15,17 +21,17 @@ function OtherInfo({ formData, setFormData }) {
 
   <TextField
                   autoComplete="given-name"
-                  name="userName"
+                  name="username"
                   required
                   fullWidth
-                  id="firstName"
-                  label="User Name"
+                  id="userName"
+                  label="userName"
                   autoFocus
-                  value={formData.userName}
-        onChange={(e) => {
-          setFormData({ ...formData, userName: e.target.value });
-        }} 
-                />
+                  value={userData['userName']}
+                  onChange={(e) => {
+                   setUserData({ ...userData, 'userName': e.target.value });
+                  }}
+        />
                 </Grid>
                 <Typography></ Typography>
                 <Grid item xs={12} sm={6}>
@@ -36,10 +42,10 @@ function OtherInfo({ formData, setFormData }) {
                   label="Nationality"
                   name="nationality"
                   autoComplete="family-name"
-                  value={formData.nationality}
-        onChange={(e) => {
-          setFormData({ ...formData, nationality: e.target.value });
-        }} 
+                  value={userData['nationality']}
+                  onChange={(e) => {
+                   setUserData({ ...userData, 'nationality': e.target.value });
+                  }} 
                 />
               </Grid>
               <Grid item xs={12} sm={12}>
@@ -50,10 +56,10 @@ function OtherInfo({ formData, setFormData }) {
                   label="Gender"
                   name="gender"
                   autoComplete="family-name"
-                  value={formData.gender}
-        onChange={(e) => {
-          setFormData({ ...formData, gender: e.target.value });
-        }} 
+                  value={userData['gender']}
+                  onChange={(e) => {
+                   setUserData({ ...userData, 'gender': e.target.value });
+                  }} 
                 />
               </Grid>
               <Grid item xs={12} sm={12}>
@@ -62,28 +68,37 @@ function OtherInfo({ formData, setFormData }) {
                   fullWidth
                   id="lastName"
                   label="Address"
-                  name="adddress"
+                  name="address"
                   autoComplete="family-name"
-                  value={formData.address}
-        onChange={(e) => {
-          setFormData({ ...formData, address: e.target.value });
-        }} 
+                  value={userData['address']}
+                  onChange={(e) => {
+                   setUserData({ ...userData, 'address': e.target.value });
+                  }} 
                 />
                 
                  
               </Grid>
            
-              <Grid item xs={12} sm={2}>
+              <Grid item xs={12} sm={12}>
                 <TextField
     id="date"
     label="Birthday"
     type="date"
     defaultValue="2017-05-24"
     autoComplete="family-name"
+    value={userData['date']}
+    onChange={(e) => {
+      setUserData({ ...userData, 'date': e.target.value });
+     }} 
   
    
   />
                 </Grid>
+                <Grid item xs={12} sm={12}>  
+                <Button variant="contained" onClick={()=>setStep(1)} color='secondary'>Previous</Button><span></span>
+                <Button variant="contained" onClick={()=>setStep(3)} color='primary'>Next</Button>
+                </Grid>
+              
                
             </Grid>
     </FormControl>
