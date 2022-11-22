@@ -1,14 +1,14 @@
 import React from 'react'
 
 
-import { useState } from 'react'
+import { useState} from 'react'
 
 import OtherInfo from './formpages/OtherInfo'
 import PersonalInfo from './formpages/PersonalInfo'
 import ReviewInfo from './formpages/ReviewInfo'
 
-
 import {Button, Box,Grid,Paper} from '@mui/material'
+
 
 
 
@@ -20,7 +20,7 @@ function Form() {
 
 
 
-const [page, setPage]=useState(0);
+ const [page, setPage]=useState(0);
 const [formData,SetFormData] = useState({
       email:"",
       gender:"",
@@ -33,7 +33,7 @@ const [formData,SetFormData] = useState({
       remember:false
 
 
-});
+}); 
 
 const FormTitles = ["Personal Info","Other","Review Info"]
 
@@ -47,6 +47,9 @@ const PageDisplay = () => {
         return <ReviewInfo formData={formData} setFormData={SetFormData}/>
      }
 };
+
+
+
 
   return (
     <Grid>
